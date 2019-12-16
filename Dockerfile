@@ -3,6 +3,6 @@ ADD ./ app/
 WORKDIR /app
 RUN mvn clean install
 
-COPY --from=build /app/target/eureka-registry-service.jar eureka-registry-service.jar
+COPY --from=build /app/target/eureka-server-0.0.1-SNAPSHOT.jar eureka-server-0.0.1-SNAPSHOT.jar
 EXPOSE 8781
-ENTRYPOINT ["java","-jar","-Dserver.port=9001","eureka-registry-service.jar"]
+ENTRYPOINT ["java","-jar","-Dserver.port=9001","eureka-server-0.0.1-SNAPSHOT.jar"]
