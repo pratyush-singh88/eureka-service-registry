@@ -5,5 +5,5 @@ RUN mvn clean install
 
 FROM openjdk:8-jdk-alpine
 COPY --from=build /app/target/eureka-server-0.0.1-SNAPSHOT.jar MM-eureka.jar
-EXPOSE 8781
-ENTRYPOINT ["java","-jar","-Dserver.port=9001","MM-eureka.jar"]
+EXPOSE 8788
+ENTRYPOINT ["java","-jar","-Dserver.port=9987","MM-eureka.jar"]
