@@ -3,6 +3,7 @@ ADD ./ app/
 WORKDIR /app
 RUN mvn clean install
 
-COPY --from=build /app/target/eureka-server-0.0.1-SNAPSHOT.jar eureka-server-0.0.1-SNAPSHOT.jar
+FROM openjdk:8-jdk-alpine
+COPY --from=build /app/target/eureka-server-0.0.1-SNAPSHOT.jar MM-eureka.jar
 EXPOSE 8781
-ENTRYPOINT ["java","-jar","-Dserver.port=9001","eureka-server-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","-Dserver.port=9001","MM-eureka.jar"]
