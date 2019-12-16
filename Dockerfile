@@ -5,6 +5,6 @@ RUN mvn clean install
  
 
 FROM openjdk:8-jdk-alpine
-COPY --from=build /app/target/SMM-orderService.jar SMM-orderService.jar
+COPY --from=build /app/target/eureka-registry-service.jar eureka-registry-service.jar
 EXPOSE 8781
-ENTRYPOINT ["java","-jar","-Dserver.port=9001","SMM-orderService.jar"]
+ENTRYPOINT ["java","-jar","-Dserver.port=9001","eureka-registry-service.jar"]
